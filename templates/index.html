@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="{{ url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+
+</head>
+
+<body>
+	{% for server in serverlist %}
+		<div class="server-wrapper">
+			<h2>Server:{{ server["info"]["GamePort"] }}</h2>
+			<h3>{{ server["info"]["Hostname"] }}</h2>
+			<p>Ping: {{ server["info"]["Ping"] }}<br> Players: {{ server["info"]["Players"] }}<br> Map: {{ server["info"]["Map"] }}</p>
+			
+			<!--TEAM 1 -->
+			<div id="team1">
+				<h4> Team1</h4>	
+				<table class="spillere">
+					<tr class="maintd">
+						<td>
+							Nick
+						</td>
+						<td>
+							Score
+						</td>
+					</tr>
+				{% for player in server["teams"]["team1"] %}
+	
+					<tr>
+						<td>
+							{{ player["Name"] }}
+						</td>
+						<td>
+							{{ player["Frags"] }}
+						</td>
+					</tr>
+				{% endfor %}
+				</table>
+			</div>
+
+
+			<!--TEAM 2 -->
+			<div class="team"id="team2">
+				<h4> Team2</h4>	
+
+				<table class="spillere" id="team1">
+					<tr class="maintd">
+						<td>
+							Nick
+						</td>
+						<td>
+							Score
+						</td>
+					</tr>
+				{% for player in server["teams"]["team2"] %}
+					<tr>
+						<td>
+							{{ player["Name"] }}
+						</td>
+						<td>
+							{{ player["Frags"] }}
+						</td>
+					</tr>
+				{% endfor %}
+				</table>
+			</div>
+
+			<div id="rest">
+				<!--REST -->
+				<h4> Spectators</h4>	
+				<table class="spillere">
+					<tr class="maintd">
+					<!--
+						<td>
+							Nick
+						</td>
+						<td>
+							Score
+						</td>
+						-->
+					</tr>
+				{% for player in server["teams"]["rest"] %}
+					<tr>
+						<td>
+							{{ player["Name"] }}
+						</td>
+						<td>
+							{{ player["Frags"] }}
+						</td>
+					</tr>
+				{% endfor %}
+				</table>
+			</div>
+
+
+
+		</div>
+	{% endfor %}
+
+</body>
+</html>

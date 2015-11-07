@@ -1,0 +1,32 @@
+.server-wrapper {
+	border: 1px solid;
+	border-color: green;
+	border-radius: 10px;
+	float:left;
+	text-align: center;
+	margin:20px;
+	padding: 20px;
+}
+.spillere {
+	top: -20px;	
+	position: relative;
+
+	border: 1px;
+	
+}
+td{
+	border:1px;
+}
+
+#team1{
+	float:left;
+}
+#team2{
+	float: right;
+	display: inline-block;
+	
+}
+#rest{
+	display: block;
+	clear: both;
+}

@@ -79,7 +79,11 @@ def getStats():
 	#info = query.getInfo()
 	return render_template("index.html", serverlist=serverlist) 
 
+@app.route('/test', methods=['POST'])
 
+def test():
+	print(request.json["param"])
+	return ("response")
 if __name__ == '__main__':
 
 	app.run()

@@ -11,96 +11,20 @@
 </head>
 
 <body>
-	{% for server in serverlist %}
+	{% for SERVER in SERVERS %}
+
 		<div class="server-wrapper">
-			<h2>Server:{{ server["info"]["GamePort"] }}</h2>
-			<h3>{{ server["info"]["Hostname"] }}</h2>
-			<p>Ping: {{ server["info"]["Ping"] }}<br> Players: {{ server["info"]["Players"] }}<br> Map: {{ server["info"]["Map"] }}</p>
-			
-			<!--TEAM 1 -->
-			<div id="team1">
-				<h4> Team1</h4>	
-				<table class="spillere">
-					<tr class="maintd">
-						<td>
-							Nick
-						</td>
-						<td>
-							Score
-						</td>
-					</tr>
-				{% for player in server["teams"]["team1"] %}
-	
-					<tr>
-						<td>
-							{{ player["Name"] }}
-						</td>
-						<td>
-							{{ player["Frags"] }}
-						</td>
-					</tr>
-				{% endfor %}
-				</table>
-			</div>
-
-
-			<!--TEAM 2 -->
-			<div class="team"id="team2">
-				<h4> Team2</h4>	
-
-				<table class="spillere" id="team1">
-					<tr class="maintd">
-						<td>
-							Nick
-						</td>
-						<td>
-							Score
-						</td>
-					</tr>
-				{% for player in server["teams"]["team2"] %}
-					<tr>
-						<td>
-							{{ player["Name"] }}
-						</td>
-						<td>
-							{{ player["Frags"] }}
-						</td>
-					</tr>
-				{% endfor %}
-				</table>
-			</div>
-
-			<div id="rest">
-				<!--REST -->
-				<h4> Spectators</h4>	
-				<table class="spillere">
-					<tr class="maintd">
-					<!--
-						<td>
-							Nick
-						</td>
-						<td>
-							Score
-						</td>
-						-->
-					</tr>
-				{% for player in server["teams"]["rest"] %}
-					<tr>
-						<td>
-							{{ player["Name"] }}
-						</td>
-						<td>
-							{{ player["Frags"] }}
-						</td>
-					</tr>
-				{% endfor %}
-				</table>
-			</div>
+			<h2>Name: unnamed</h2>
+			<h3>Server is offline</h3>
+			<p>Ping = null</p>
 
 
 
 		</div>
 	{% endfor %}
-
+	<script type="text/javascript">
+		var SERVERS = {{ SERVERS|safe }}
+	</script>
+	
 </body>
 </html>

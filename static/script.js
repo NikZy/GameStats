@@ -1,26 +1,29 @@
-var data = {
-	"servers":
-		[
-			["81.166.24.5", 27115],
-			["server2 IP", 12345],
-		]
-};
-
 var getStats = function(){
 	//location.reload(true)	
-	$.ajax({
-		type:"POST",
-		url: "/test",
-		data: JSON.stringify(data),//JSON.stringify("request":"Sindre"),
-		dataType: "json",
-		contentType: 'application/json;charset=UTF-8',
-		success: function(response) {
-			console.log("RESPONSE!!!:", response["response"]);
-		},
-		error: function(error) {
-			console.log(error)
-		}
-	});
+
+	// SERVERS is decleared in the template "index"
+
+	// send ajax request for each server
+	for (var i = 0; i< SERVERS.length; i++){
+		var data = {
+			"ip":SERVERS[i][0],
+			"port":SERVERS[i][1]
+		};
+		
+		$.ajax({
+			type:"POST",
+			url: "/getStats",
+			data: JSON.stringify(data),//JSON.stringify("request":"Sindre"),
+			dataType: "json",
+			contentType: 'application/json;charset=UTF-8',
+			success: function(response) {
+				console.log("RESPONSE!!!:", response);
+			},
+			error: function(error) {
+				console.log(error)
+			}
+		});
+	};
 };
 
 $(document).ready(function(){

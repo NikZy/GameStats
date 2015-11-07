@@ -1,5 +1,9 @@
 var data = {
-	"param": "test"
+	"servers":
+		[
+			["81.166.24.5", 27115],
+			["server2 IP", 12345],
+		]
 };
 
 var getStats = function(){

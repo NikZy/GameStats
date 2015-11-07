@@ -82,7 +82,8 @@ def getStats():
 @app.route('/test', methods=['POST'])
 
 def test():
-	print(request.json["param"])
+	for list in request.json["servers"]:
+		print(list[0], list[1])
 	return ("response")
 if __name__ == '__main__':
 

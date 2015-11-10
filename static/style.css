@@ -1,4 +1,5 @@
 .server-wrapper {
+	width: 250px;
 	border: 1px solid;
 	border-color: green;
 	border-radius: 10px;

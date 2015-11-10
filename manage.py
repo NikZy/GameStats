@@ -35,7 +35,6 @@ def getStats():
 	# establishes an connection with server
 	print (ip, port)
 	query = SourceQuery(ip, port)
-	print (query)
 	# gets info from server
 	info = query.getInfo()
 

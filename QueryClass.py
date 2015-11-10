@@ -23,7 +23,7 @@ class SourceQuery(object):
 
     is_third = False
 
-    def __init__(self, addr, port=27015, timeout=5.0):
+    def __init__(self, addr, port=27015, timeout=0.5):
         self.ip, self.port, self.timeout = socket.gethostbyname(addr), port, timeout
         self.sock = False
         self.challenge = False

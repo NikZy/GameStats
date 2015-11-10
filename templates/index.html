@@ -13,14 +13,59 @@
 <body>
 	{% for SERVER in SERVERS %}
 
-		<div class="server-wrapper" id="{{ loop.index }}">
+		<div class="server-wrapper" id="{{ loop.index-1 }}">
 			<h2 id="sname">Hostname: unknown</h2>
-			<h3>Server is offline</h3>
-			<p id="sping">Ping = null</p>
 
+			<p id="sping">Ping:(</p>
 
-
-
+			<table id="team1">
+				<tr>
+					<td>
+						Team 1
+					</td>
+				</tr>
+				<tr>
+					<th>
+					Players
+					</th>
+					<th>
+						Score
+					</th>
+				</tr>
+				<tr>
+					<td>
+						Sindre
+					</td>
+					<td>
+						4
+					</td>
+				</tr>
+			</table>
+			VS
+			<table id="team2">
+				<tr>
+					<td>
+						Team 2
+					</td>
+				</tr>
+				<tr>
+					<th>
+					Players
+					</th>
+					<th>
+						Score
+					</th>
+				</tr>
+				<tr>
+					<td>
+						Fredrik
+					</td>
+					<td>
+						4
+					</td>
+				</tr>
+			</table>
+			<h3 id="slive">Server is offline</h3>
 		</div>
 	{% endfor %}
 	<script type="text/javascript">

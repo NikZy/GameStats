@@ -17,14 +17,29 @@ var getStats = function(){
 			dataType: "json",
 			contentType: 'application/json;charset=UTF-8',
 			success: function(response) {
-				console.log("RESPONSE!!!:", response);
+				//if server is up
+				if (response["info"] != "false"){
+					//update DOM
+					updateDOM(i, response);
+				};
+				
 			},
 			error: function(error) {
 				console.log(error)
 			}
 		});
+		
 	};
+
 };
+
+var updateDOM = function(index, srv_info) {
+	var index = '#' + index
+	console.log(srv_info["info"]["Hostname"])
+	$(index+" #sname").text("Hostname: "+ srv_info["info"]["Hostname"]);
+
+
+}
 
 $(document).ready(function(){
 	var time = setInterval(getStats(),2000)

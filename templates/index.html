@@ -13,10 +13,11 @@
 <body>
 	{% for SERVER in SERVERS %}
 
-		<div class="server-wrapper">
-			<h2>Name: unnamed</h2>
+		<div class="server-wrapper" id="{{ loop.index }}">
+			<h2 id="sname">Hostname: unknown</h2>
 			<h3>Server is offline</h3>
-			<p>Ping = null</p>
+			<p id="sping">Ping = null</p>
+
 
 
 

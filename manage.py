@@ -4,11 +4,14 @@ from QueryClass import SourceQuery
 # helper functions
 from functions import findTeams
 
-IP = "192.168.1.155"
-PORT = 27015
+IP = "81.166.24.5"
+PORT = 27115
 SERVERS = [
 			[IP, PORT],	
-			["192.168.1.156", 1337],		
+			[IP, PORT+2],		
+			[IP, PORT+4],		
+			[IP, PORT+6],		
+			[IP, PORT+8],		
 		]
 
 app = Flask(__name__)
@@ -32,9 +35,10 @@ def getStats():
 	# establishes an connection with server
 	print (ip, port)
 	query = SourceQuery(ip, port)
-
+	print (query)
 	# gets info from server
 	info = query.getInfo()
+
 
 	# if response == False the server is offline
 	if info != False:
@@ -54,7 +58,7 @@ def getStats():
 	else:
 		#server_info.append(False)
 		# TODO: find better way to handle no response from server
-		return jsonify(**{"false":"false"})
+		return jsonify(**{"info":"false"})
 	# respond request with json format
 	return jsonify(**server_info)
 if __name__ == '__main__':

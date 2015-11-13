@@ -15,16 +15,19 @@
 	border: 1px;
 	
 }
-td, table, tr, th{
-	border: 1px solid black;
+#teamtag {
+	text-align: center;
 }
-#team1{
+
+#team1, #team2{
 	float: left;
+	text-align: left;
 	display: inline-block;
 }
 #team1 td, #team1 th{
 	color: #FF5722;
 }
+
 #team2{
 	float: right;
 	display: inline-block;

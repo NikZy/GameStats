@@ -15,7 +15,7 @@ SERVERS = [
 		]
 
 app = Flask(__name__)
-app.debug = False
+app.debug = Fales
 
 @app.route('/')
 

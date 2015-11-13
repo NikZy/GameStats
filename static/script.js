@@ -10,7 +10,7 @@ var getStats = function(){
 		queryServ(i, data);
 		
 	};
-	//setTimeout(function(){getStats()}, 4000);
+	setTimeout(function(){getStats()}, 4000);
 
 };
 var queryServ = function(i, data){
@@ -40,7 +40,8 @@ var updateDOM = function(index, srv_info) {
 	// remove info
 	$(index+" #sname").text("Hostname: unknown");
 	$(index+" #sping").text("Ping:(");
-	$(index+" #slive").text("Server is offline")
+	$(index+" #slive").text("Server is offline");
+	$(index+" #smap").text("Map:(");
 
 	// remove all players
 	$(index+" #team1").find("tr:not(:nth-child(1)):not(:nth-child(2))").remove()
@@ -48,10 +49,11 @@ var updateDOM = function(index, srv_info) {
 	
 	// if server is up
 	if (srv_info["info"] != "false") {
-	// else update
+
 		$(index+" #sname").text(srv_info["info"]["Hostname"]);
 		$(index+" #sping").text("Ping: "+srv_info["info"]["Ping"])
-		$(index+" #slive").text("GOTV: connect "+srv_info["ip"]+":"+(parseInt(srv_info["port"])+1))
+		$(index+" #smap").text("Map: " +srv_info["info"]["Map"]);
+		$(index+" #slive").text("GOTV: "+srv_info["ip"]+":"+(parseInt(srv_info["port"])+1))
 
 		for(var i = 0; i < srv_info["teams"]["team1"].length; i++){
 			$(index+" #team1 tr:last").after("<tr><td>"+srv_info['teams']['team1'][i]['Name']+"</td><td>"+srv_info['teams']['team1'][i]['Frags']+"</td></tr>")

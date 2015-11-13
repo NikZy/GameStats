@@ -1,12 +1,12 @@
 .server-wrapper {
-	width: 250px;
 	border: 1px solid;
-	border-color: green;
+	border-color: white;
 	border-radius: 10px;
 	float:left;
 	text-align: center;
 	margin:20px;
 	padding: 20px;
+	background-color: #f5f5dc;
 }
 .spillere {
 	top: -20px;	
@@ -15,19 +15,30 @@
 	border: 1px;
 	
 }
-td{
-	border:1px;
+td, table, tr, th{
+	border: 1px solid black;
 }
-
 #team1{
-	float:left;
+	float: left;
+	display: inline-block;
+}
+#team1 td, #team1 th{
+	color: #FF5722;
 }
 #team2{
 	float: right;
 	display: inline-block;
 	
 }
+#team2 td, #team2, th{
+	color: #1976D2;
+}
 #rest{
 	display: block;
 	clear: both;
+}
+body {
+	background-color: #2196F3;
+	color: #212121;
+	font-family: 'open-sans', sans-serif;
 }

@@ -15,7 +15,7 @@ SERVERS = [
 		]
 
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 
 @app.route('/')
 
@@ -26,6 +26,8 @@ def index():
 	#info = query.getInfo()
 	return render_template("index.html", SERVERS=SERVERS) 
 
+
+# ajax post url
 @app.route('/getStats', methods=['POST'])
 
 def getStats():
@@ -61,4 +63,4 @@ def getStats():
 	# respond request with json format
 	return jsonify(**server_info)
 if __name__ == '__main__':
-	app.run()
+	app.run(host="0.0.0.0")

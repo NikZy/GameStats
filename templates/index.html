@@ -7,6 +7,9 @@
 	<script>window.jQuery || document.write('<script src="{{ url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
 
 	<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+	<!--Google fonts-->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	
 
 </head>
 
@@ -17,7 +20,8 @@
 			<h2 id="sname">Hostname: unknown</h2>
 
 			<p id="sping">Ping:(</p>
-
+			<p id="smap">Map:(</p>
+			<h4 id="slive">Server is offline</h4>
 			<table id="team1">
 				<tr>
 					<td>
@@ -26,7 +30,7 @@
 				</tr>
 				<tr>
 					<th>
-					Players
+					Player
 					</th>
 					<th>
 						Score
@@ -41,7 +45,6 @@
 					</td>
 				</tr>
 			</table>
-			VS
 			<table id="team2">
 				<tr>
 					<td>
@@ -50,7 +53,7 @@
 				</tr>
 				<tr>
 					<th>
-					Players
+					Player
 					</th>
 					<th>
 						Score
@@ -64,8 +67,8 @@
 						4
 					</td>
 				</tr>
-			</table>
-			<h3 id="slive">Server is offline</h3>
+			</table>		
+
 		</div>
 	{% endfor %}
 	<script type="text/javascript">

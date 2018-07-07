@@ -1,3 +1,8 @@
+var addServer = function() {
+	var ip = $('input[name="addIp"]').val();
+	var port = $('input[name="addPort"]').val();
+	SERVERS.add([ip, port]);
+}
 var getStats = function(){
 	// SERVERS is decleared in the template "index"
 	// send ajax request for each server
@@ -8,7 +13,7 @@ var getStats = function(){
 		};
 		// query serv and updates DOM
 		queryServ(i, data);
-		
+
 	};
 	setTimeout(function(){getStats()}, 4000);
 
@@ -21,10 +26,10 @@ var queryServ = function(i, data){
 			dataType: "json",
 			contentType: 'application/json;charset=UTF-8',
 			success: function(response) {
-			
+
 				//update DOM
 				updateDOM(i, response);
-				
+
 			},
 			error: function(error) {
 				console.log(error)
@@ -46,7 +51,7 @@ var updateDOM = function(index, srv_info) {
 	// remove all players
 	$(index+" #team1").find("tr:not(:nth-child(1)):not(:nth-child(2))").remove()
 	$(index+" #team2").find("tr:not(:nth-child(1)):not(:nth-child(2))").remove()
-	
+
 	// if server is up
 	if (srv_info["info"] != "false") {
 
@@ -72,8 +77,11 @@ var updateDOM = function(index, srv_info) {
 
 $(document).ready(function(){
 	//var time = setInterval(getStats(), 6000)
-	
+ $("#addServer").click(fucntion() {
+	 addServer();
+ });
+ 
 	getStats();
-	
+
 
 })

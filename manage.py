@@ -4,14 +4,10 @@ from QueryClass import SourceQuery
 # helper functions
 from functions import findTeams
 
-IP = "81.166.24.5"
+IP = "127.0.0.1"
 PORT = 27115
 SERVERS = [
-			[IP, PORT],	
-			[IP, PORT+2],		
-			[IP, PORT+4],		
-			[IP, PORT+6],		
-			[IP, PORT+8],		
+			[IP, PORT],
 		]
 
 app = Flask(__name__)
@@ -24,7 +20,7 @@ def index():
 
 	#query.getInfo()["Hostname"]
 	#info = query.getInfo()
-	return render_template("index.html", SERVERS=SERVERS) 
+	return render_template("index.html", SERVERS=SERVERS)
 
 
 # ajax post url

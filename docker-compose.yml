@@ -1,0 +1,14 @@
+version: '2'
+ 
+services:
+  gamestats:
+    build: ./
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=manage.py
+      - FLASK_DEBUG=1
+    volumes:
+      - ./src:/src
+    command: flask run --host=0.0.0.0
+ 
